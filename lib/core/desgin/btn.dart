@@ -19,15 +19,15 @@ class BTN extends StatelessWidget {
         onPressed: onPrees,
         child: Text(
           text,
-          style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700,color: Colors.white),
+          style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700,color: Colors.white),
         ),
         style: ElevatedButton.styleFrom(
-          minimumSize: Size(double.infinity.w, 60.h),
+          minimumSize: Size(double.infinity.w, 50.h),
 
-          backgroundColor: Color(0xff047857),
+          backgroundColor: Theme.of(context).primaryColor,
             shape: RoundedRectangleBorder(
 
-          borderRadius: BorderRadius.circular(15.r),
+          borderRadius: BorderRadius.circular(10.r),
         )),
       ),
     );

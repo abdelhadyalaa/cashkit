@@ -1,0 +1,130 @@
+import 'package:cashkit/core/desgin/btn.dart';
+import 'package:flutter/material.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
+
+class PinCodeScreen extends StatelessWidget {
+  const PinCodeScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView(
+        children: [
+          Stack(
+            children: [
+              Image.asset(
+                "assets/images/background.png",
+                fit: BoxFit.fill,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 16.0, top: 48),
+                child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
+                      size: 30,
+                    )),
+              ),
+              SizedBox(
+                height: 80,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 16.0, top: 130),
+                child: Text("Enter Code",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 28,
+                        color: Colors.white)),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 200.0),
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  width: double.infinity,
+                  height: 700,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(24),
+                          topRight: Radius.circular(24))),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            "Sent code on",
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xff989898)),
+                          ),
+                          Text(
+                            " lena123@gmail.com",
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w400,
+                                color: Theme.of(context).primaryColor),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 32,
+                      ),
+                      PinCodeTextField(
+                        appContext: (context),
+                        keyboardType: TextInputType.number,
+                        animationType: AnimationType.fade,
+                        cursorColor: Theme.of(context).primaryColor,
+                        animationDuration: Duration(milliseconds: 300),
+                        length: 6,
+                        enableActiveFill: false,
+                        pinTheme: PinTheme(
+                          shape: PinCodeFieldShape.box,
+                          fieldOuterPadding:
+                              EdgeInsets.symmetric(horizontal: 2),
+
+                          borderRadius: BorderRadius.circular(15),
+                          fieldHeight: 60,
+                          fieldWidth: 50,
+                          activeColor: Theme.of(context).primaryColor,
+                          inactiveColor: Color(0xffF3F3F3),
+                          selectedColor: Theme.of(context).primaryColor,
+                          // selectedFillColor: Colors.red,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 32,
+                      ),
+                      BTN(text: "Verify", onPrees: () {}),
+                      SizedBox(
+                        height: 32,
+                      ),
+                      Text(
+                        "Resend Code in 24s",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Theme.of(context).primaryColor),
+                      ),
+                      Text(
+                        "Resend Code",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xffBDBDBD)),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
