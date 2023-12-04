@@ -1,16 +1,16 @@
 import 'package:cashkit/core/desgin/btn.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:cashkit/screens/auth/login/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class signUp extends StatefulWidget {
-  const signUp({Key? key}) : super(key: key);
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
-  State<signUp> createState() => _signUpState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _signUpState extends State<signUp> {
+class _SignUpScreenState extends State<SignUpScreen> {
   String password = '';
   bool isLengthValid = false;
   bool hasUpperCase = false;
@@ -48,7 +48,7 @@ class _signUpState extends State<signUp> {
         children: [
           // Background Image
           Image.asset(
-            'lib/core/images/background.png',
+            'assets/images/background.png',
             fit: BoxFit.cover,
             width: double.infinity,
             height: double.infinity,
@@ -56,7 +56,9 @@ class _signUpState extends State<signUp> {
           Padding(
             padding: const EdgeInsets.only(left: 16.0, top: 48),
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 icon: Icon(
                   Icons.arrow_back_ios,
                   color: Colors.white,
@@ -79,8 +81,8 @@ class _signUpState extends State<signUp> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              padding: EdgeInsets.all(16.0),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.all(16.0),
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20.0),
@@ -107,7 +109,7 @@ class _signUpState extends State<signUp> {
                     TextFormField(
                       decoration: InputDecoration(
                         floatingLabelBehavior: FloatingLabelBehavior.never,
-                        enabledBorder: OutlineInputBorder(
+                        enabledBorder: const OutlineInputBorder(
                             borderSide: BorderSide(
                           color: Color(0xffBDBDBD),
                           width: 1.0,
@@ -129,7 +131,7 @@ class _signUpState extends State<signUp> {
                     TextFormField(
                       decoration: InputDecoration(
                         floatingLabelBehavior: FloatingLabelBehavior.never,
-                        enabledBorder: OutlineInputBorder(
+                        enabledBorder: const OutlineInputBorder(
                             borderSide: BorderSide(
                           color: Color(0xffBDBDBD),
                           width: 1.0,
@@ -153,7 +155,7 @@ class _signUpState extends State<signUp> {
                       onChanged: _updatePassword,
                       decoration: InputDecoration(
                         floatingLabelBehavior: FloatingLabelBehavior.never,
-                        enabledBorder: OutlineInputBorder(
+                        enabledBorder: const OutlineInputBorder(
                             borderSide: BorderSide(
                           color: Color(0xffBDBDBD),
                           width: 1.0,
@@ -169,8 +171,8 @@ class _signUpState extends State<signUp> {
                             onPressed: _toggleObscured,
                             icon: Icon(
                               _isObsecured
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
                               color: Theme.of(context).primaryColor,
                             )),
                         border: OutlineInputBorder(
@@ -184,7 +186,7 @@ class _signUpState extends State<signUp> {
                       obscureText: _isObsecuredConfirm,
                       decoration: InputDecoration(
                         floatingLabelBehavior: FloatingLabelBehavior.never,
-                        enabledBorder: OutlineInputBorder(
+                        enabledBorder: const OutlineInputBorder(
                             borderSide: BorderSide(
                           color: Color(0xffBDBDBD),
                           width: 1.0,
@@ -200,8 +202,8 @@ class _signUpState extends State<signUp> {
                             onPressed: toggleObscuredConfrm,
                             icon: Icon(
                               _isObsecuredConfirm
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
                               color: Theme.of(context).primaryColor,
                             )),
                         border: OutlineInputBorder(
@@ -228,7 +230,7 @@ class _signUpState extends State<signUp> {
                     _buildValidationIcon(hasNumber, '1 or more numbers'),
                     _buildValidationIcon(
                         hasSpecialChar, '1 or more numbers special character'),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     SizedBox(
                       height: 28.h,
                     ),
@@ -242,15 +244,15 @@ class _signUpState extends State<signUp> {
                         Container(
                           height: 2,
                           width: 36,
-                          color: Color(0xffBDBDBD),
+                          color: const Color(0xffBDBDBD),
                         ),
-                        Text(" Or sign up with ",
+                        const Text(" Or sign up with ",
                             style: TextStyle(
                                 fontSize: 14, color: Color(0xffBDBDBD))),
                         Container(
                           height: 2,
                           width: 36,
-                          color: Color(0xffBDBDBD),
+                          color: const Color(0xffBDBDBD),
                         )
                       ],
                     ),
@@ -266,7 +268,7 @@ class _signUpState extends State<signUp> {
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
                                   width: 1,
-                                  color: Color(0xffBDBDBD),
+                                  color: const Color(0xffBDBDBD),
                                 )),
                             width: 96.w,
                             height: 50.h,
@@ -279,7 +281,7 @@ class _signUpState extends State<signUp> {
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
                                   width: 1,
-                                  color: Color(0xffBDBDBD),
+                                  color: const Color(0xffBDBDBD),
                                 )),
                             width: 96.w,
                             height: 50.h,
@@ -293,11 +295,11 @@ class _signUpState extends State<signUp> {
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
                                   width: 1,
-                                  color: Color(0xffBDBDBD),
+                                  color: const Color(0xffBDBDBD),
                                 )),
                             width: 96.w,
                             height: 50.h,
-                            child: Image.asset("lib/core/images/xTw.png")),
+                            child: Image.asset("assets/images/xTw.png")),
                       ],
                     ),
                     SizedBox(height: 20.h),
@@ -308,11 +310,13 @@ class _signUpState extends State<signUp> {
                         children: [
                           Text('Already have an account?',
                               style: TextStyle(
-                                  color: Color(0xffBDBDBD), fontSize: 14.sp)),
+                                  color: const Color(0xffBDBDBD), fontSize: 14.sp)),
                           InkWell(
                               onTap: () {
-                                // Navigator.push(context,
-                                //     MaterialPageRoute(builder: (context) =>login ()));
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const LoginScreen()));
                               },
                               child: Text(' Log in',
                                   style: TextStyle(
@@ -337,10 +341,10 @@ class _signUpState extends State<signUp> {
       children: [
         Icon(
           isValid ? Icons.check_circle : Icons.check_circle,
-          color: isValid ? Color(0xff047857) : Colors.black12,
+          color: isValid ? const Color(0xff047857) : Colors.black12,
         ),
-        SizedBox(width: 8.0),
-        Text(message, style: TextStyle(fontSize: 16)),
+        const SizedBox(width: 8.0),
+        Text(message, style: const TextStyle(fontSize: 16)),
       ],
     );
   }

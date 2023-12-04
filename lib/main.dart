@@ -1,7 +1,10 @@
 import 'package:cashkit/core/res/colors.dart';
-import 'package:cashkit/screens/auth/pin_code/view.dart';
+import 'package:cashkit/screens/auth/login/view.dart';
+import 'package:cashkit/screens/questions/q_icome/view.dart';
+import 'package:cashkit/screens/questions/q_three/view.dart';
+import 'package:cashkit/screens/questions/q_two/view.dart';
+import 'package:cashkit/screens/questions/spend_money/view.dart';
 import 'package:flutter/material.dart';
-import 'screens/auth/forget_password/view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
@@ -19,19 +22,24 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-
         return MaterialApp(
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             fontFamily: "Poppins",
-
-            scaffoldBackgroundColor: Color(0xffEFEFEF),
-            primaryColor:getMaterialColor(primaryColor.value) ,
+            scaffoldBackgroundColor: const Color(0xffEFEFEF),
+            primaryColor: getMaterialColor(primaryColor.value),
             primarySwatch: getMaterialColor(primaryColor.value),
             useMaterial3: true,
           ),
-          home: PinCodeScreen(),
+          home: PageView(
+            children: [
+              IncomeQuestionScreen(),
+              QuestionThreeScreen(),
+              QuestionTwoScreen(),
+              QuestionOneScreen(),
+            ],
+          ),
         );
       },
     );

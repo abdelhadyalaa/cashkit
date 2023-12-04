@@ -1,16 +1,15 @@
 import 'package:cashkit/core/desgin/btn.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class newPass extends StatefulWidget {
-  const newPass({Key? key}) : super(key: key);
+class NewPassScreen extends StatefulWidget {
+  const NewPassScreen({Key? key}) : super(key: key);
 
   @override
-  State<newPass> createState() => _newPassState();
+  State<NewPassScreen> createState() => _NewPassScreenState();
 }
 
-class _newPassState extends State<newPass> {
+class _NewPassScreenState extends State<NewPassScreen> {
   String password = '';
   bool isLengthValid = false;
   bool hasUpperCase = false;
@@ -18,15 +17,18 @@ class _newPassState extends State<newPass> {
   bool hasSpecialChar = false;
   bool _isObsecured = true;
   bool _isObsecuredConfirm = true;
-  void _toggleObscured(){
-    setState(() {
-      _isObsecured=! _isObsecured ;
-    });}
 
-  void toggleObscuredConfrm(){
+  void _toggleObscured() {
     setState(() {
-      _isObsecuredConfirm =! _isObsecuredConfirm ;
-    });}
+      _isObsecured = !_isObsecured;
+    });
+  }
+
+  void toggleObscuredConfrm() {
+    setState(() {
+      _isObsecuredConfirm = !_isObsecuredConfirm;
+    });
+  }
 
   void _updatePassword(String newPassword) {
     setState(() {
@@ -45,7 +47,7 @@ class _newPassState extends State<newPass> {
         children: [
           // Background Image
           Image.asset(
-            'lib/core/images/background.png',
+            'assets/images/background.png',
             fit: BoxFit.cover,
             width: double.infinity,
             height: double.infinity,
@@ -53,7 +55,9 @@ class _newPassState extends State<newPass> {
           Padding(
             padding: const EdgeInsets.only(left: 16.0, top: 48),
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 icon: Icon(
                   Icons.arrow_back_ios,
                   color: Colors.white,
@@ -76,8 +80,8 @@ class _newPassState extends State<newPass> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              padding: EdgeInsets.all(16.0),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.all(16.0),
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20.0),
@@ -86,94 +90,89 @@ class _newPassState extends State<newPass> {
               ),
               height: MediaQuery.of(context).size.height * 0.76,
               width: double.infinity,
-              child:SingleChildScrollView(
+              child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-
                       "In order to keep your account safe you need to create a strong password.",
                       style: TextStyle(
                         fontSize: 18.sp,
                         fontWeight: FontWeight.w400,
-                        color: Color(0xff989898),
-
-                      ),),
-                    SizedBox(
-                      height:25.h,
+                        color: const Color(0xff989898),
+                      ),
                     ),
-
                     SizedBox(
-                      height:18.h,
+                      height: 25.h,
+                    ),
+                    SizedBox(
+                      height: 18.h,
                     ),
                     TextFormField(
                       obscureText: _isObsecured,
-
-
                       onChanged: _updatePassword,
                       decoration: InputDecoration(
                         floatingLabelBehavior: FloatingLabelBehavior.never,
-                        enabledBorder:  OutlineInputBorder(
-
+                        enabledBorder: const OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xffBDBDBD),
-                              width: 1.0,
-                            )),
-                        focusedBorder:  OutlineInputBorder(
+                          color: Color(0xffBDBDBD),
+                          width: 1.0,
+                        )),
+                        focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color:Theme.of(context).primaryColor,
+                            color: Theme.of(context).primaryColor,
                             width: 2.0,
                           ),
                         ),
-
                         labelText: "Password",
-                        suffixIcon:  IconButton(onPressed:_toggleObscured,
-                            icon: Icon(_isObsecured?Icons.visibility:Icons.visibility_off
-                              ,color: Theme.of(context).primaryColor,)),
+                        suffixIcon: IconButton(
+                            onPressed: _toggleObscured,
+                            icon: Icon(
+                              _isObsecured
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              color: Theme.of(context).primaryColor,
+                            )),
                         border: OutlineInputBorder(
-
-
                             borderRadius: BorderRadius.circular(8.r)),
                       ),
                     ),
                     SizedBox(
-                      height:18.h,
+                      height: 18.h,
                     ),
                     TextFormField(
-                      obscureText:_isObsecuredConfirm ,
-
+                      obscureText: _isObsecuredConfirm,
                       decoration: InputDecoration(
                         floatingLabelBehavior: FloatingLabelBehavior.never,
-                        enabledBorder:  OutlineInputBorder(
-
+                        enabledBorder: const OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xffBDBDBD),
-                              width: 1.0,
-                            )),
-                        focusedBorder:  OutlineInputBorder(
+                          color: Color(0xffBDBDBD),
+                          width: 1.0,
+                        )),
+                        focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color:Theme.of(context).primaryColor,
+                            color: Theme.of(context).primaryColor,
                             width: 2.0,
                           ),
                         ),
-
                         labelText: "Confirm Password",
-                        suffixIcon:  IconButton(onPressed: toggleObscuredConfrm ,
-                            icon: Icon(_isObsecuredConfirm?Icons.visibility:Icons.visibility_off
-                              ,color: Theme.of(context).primaryColor,)),
+                        suffixIcon: IconButton(
+                            onPressed: toggleObscuredConfrm,
+                            icon: Icon(
+                              _isObsecuredConfirm
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              color: Theme.of(context).primaryColor,
+                            )),
                         border: OutlineInputBorder(
-
-
                             borderRadius: BorderRadius.circular(8.r)),
                       ),
                     ),
-
                     SizedBox(
-                      height:18.h,
+                      height: 18.h,
                     ),
                     Text(
-
                       "Your password must contain",
                       style: TextStyle(
                           fontSize: 16.sp,
@@ -183,35 +182,39 @@ class _newPassState extends State<newPass> {
                     SizedBox(
                       height: 10.h,
                     ),
-                    _buildValidationIcon(isLengthValid, 'Between 8 and 20 Characters'),
-                    _buildValidationIcon(hasUpperCase, '1 uppercase letter Character'),
+                    _buildValidationIcon(
+                        isLengthValid, 'Between 8 and 20 Characters'),
+                    _buildValidationIcon(
+                        hasUpperCase, '1 uppercase letter Character'),
                     _buildValidationIcon(hasNumber, '1 or more numbers'),
-                    _buildValidationIcon(hasSpecialChar, '1 or more numbers special character'),
-                    SizedBox(height: 16.0),
+                    _buildValidationIcon(
+                        hasSpecialChar, '1 or more numbers special character'),
+                    const SizedBox(height: 16.0),
                     SizedBox(
-                      height:15.h,
+                      height: 15.h,
                     ),
-                    BTN(text: "Change password", onPrees: _allValidationsPassed ),
-
-
-
+                    BTN(
+                        text: "Change password",
+                        onPrees: _allValidationsPassed),
                   ],
                 ),
               ),
             ),
-          )],
+          )
+        ],
       ),
     );
   }
+
   Widget _buildValidationIcon(bool isValid, String message) {
     return Row(
       children: [
         Icon(
-          isValid ? Icons.check_circle : Icons.check_circle ,
-          color: isValid ?Color(0xff047857) : Colors.black12,
+          isValid ? Icons.check_circle : Icons.check_circle,
+          color: isValid ? const Color(0xff047857) : Colors.black12,
         ),
-        SizedBox(width: 8.0),
-        Text(message,style: TextStyle(fontSize: 16)),
+        const SizedBox(width: 8.0),
+        Text(message, style: const TextStyle(fontSize: 16)),
       ],
     );
   }

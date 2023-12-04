@@ -5,7 +5,7 @@ class BTN extends StatelessWidget {
   final String text;
   final VoidCallback onPrees;
 
-  BTN({
+  const BTN({
     Key? key,
     required this.text,
     required this.onPrees,
@@ -17,10 +17,6 @@ class BTN extends StatelessWidget {
       child: ElevatedButton(
 
         onPressed: onPrees,
-        child: Text(
-          text,
-          style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700,color: Colors.white),
-        ),
         style: ElevatedButton.styleFrom(
           minimumSize: Size(double.infinity.w, 50.h),
 
@@ -29,6 +25,10 @@ class BTN extends StatelessWidget {
 
           borderRadius: BorderRadius.circular(10.r),
         )),
+        child: Text(
+          text,
+          style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700,color: Colors.white),
+        ),
       ),
     );
   }

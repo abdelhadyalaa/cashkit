@@ -2,8 +2,8 @@ import 'package:cashkit/core/desgin/btn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class forgetPasswordScreen extends StatelessWidget {
-  const forgetPasswordScreen({Key? key}) : super(key: key);
+class ForgetPasswordScreen extends StatelessWidget {
+  const ForgetPasswordScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,10 @@ class forgetPasswordScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 16.0, top: 48),
                 child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+
                     icon: Icon(
                       Icons.arrow_back_ios,
                       color: Colors.white,
@@ -43,7 +46,7 @@ class forgetPasswordScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 200.0),
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   width: double.infinity.w,
                   height: 700.h,
                   decoration: BoxDecoration(
@@ -58,7 +61,7 @@ class forgetPasswordScreen extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 18.sp,
                             fontWeight: FontWeight.w400,
-                            color: Color(0xff989898)),
+                            color: const Color(0xff989898)),
                       ),
                       SizedBox(
                         height: 32.h,
