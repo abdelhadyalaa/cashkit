@@ -1,32 +1,30 @@
 import 'package:cashkit/core/desgin/questions/question_btn.dart';
-import 'package:cashkit/core/desgin/questions/questions_Containet.dart';
 import 'package:cashkit/core/desgin/questions/questions_prog.dart';
-import 'package:cashkit/screens/questions/q_two/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class QuestionOneScreen extends StatefulWidget {
-  QuestionOneScreen({Key? key}) : super(key: key);
+class QuestionFourScreen extends StatefulWidget {
+  const QuestionFourScreen({Key? key}) : super(key: key);
 
   @override
-  State<QuestionOneScreen> createState() => _QuestionOneScreenState();
+  State<QuestionFourScreen> createState() => _QuestionFourScreenState();
 }
 
-class _QuestionOneScreenState extends State<QuestionOneScreen> {
+class _QuestionFourScreenState extends State<QuestionFourScreen> {
   int? selectIndex;
   List images = [
-    "assets/images/emojione_shopping-cart.png",
-    "assets/images/emojione_mobile-phone.png",
-    "assets/images/pesonal_care.png",
-    "assets/images/clothing.png",
+    "assets/images/person.png",
+    "assets/images/wedding-couple.png",
+    "assets/images/divorce.png",
+    "assets/images/funeral.png",
     "",
   ];
   List text = [
-    "Groceries",
-    "Phones",
-    "Personal Care",
-    "Clothing",
-    "Other",
+    "Single",
+    "married",
+    "Divorced",
+    "Widowed",
+
   ];
 
   @override
@@ -38,9 +36,7 @@ class _QuestionOneScreenState extends State<QuestionOneScreen> {
           Padding(
             padding: const EdgeInsets.only(bottom: 50),
             child: QuestionBTNScreen(
-              onPrees: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionTwoScreen(),));
-              },
+              onPrees: () {},
               isSelected: selectIndex != null,
             ),
           ),
@@ -65,7 +61,7 @@ class _QuestionOneScreenState extends State<QuestionOneScreen> {
                     size: 30.sp,
                   )),
               QuestionProg(
-                widthProg: 40,
+                widthProg: 180,
               )
             ],
           ),
@@ -85,7 +81,7 @@ class _QuestionOneScreenState extends State<QuestionOneScreen> {
           ),
           ...List.generate(
             text.length,
-            (index) => InkWell(
+                (index) => InkWell(
               onTap: () {
                 selectIndex = index;
                 setState(() {});
@@ -98,18 +94,18 @@ class _QuestionOneScreenState extends State<QuestionOneScreen> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     color:
-                        selectIndex == index ? Colors.white: Color(0xffEFEFEF),
+                    selectIndex == index ? Theme.of(context).primaryColor: Color(0xffEFEFEF),
                     border: Border.all(
-                      color: selectIndex == index ? Colors.white: Colors.grey,
+                      color: Colors.grey,
                     )),
                 child: Row(
                   children: [
                     images[index] != null && images[index].isNotEmpty
                         ? Image.asset(
-                            images[index],
-                            width: 24,
-                            height: 24,
-                          )
+                      images[index],
+                      width: 24,
+                      height: 24,
+                    )
                         : SizedBox.shrink(),
                     SizedBox(
                       width: 8.w,
@@ -117,7 +113,7 @@ class _QuestionOneScreenState extends State<QuestionOneScreen> {
                     Text(
                       text[index],
                       style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                      TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                     )
                   ],
                 ),

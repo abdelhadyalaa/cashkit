@@ -3,12 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class QuestionBTNScreen extends StatelessWidget {
   final VoidCallback onPrees;
+  final bool isSelected;
   // final Color btnColor ;
   // final Color borderColor ;
   // final Color iconColor ;
   // final Color textColor ;
 
-   QuestionBTNScreen({Key? key, required this.onPrees,}) : super(key: key);
+   QuestionBTNScreen({Key? key, required this.onPrees,  this.isSelected=false,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class QuestionBTNScreen extends StatelessWidget {
         width: 124.w,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            color:Color(0xffEFEFEF),
+            color: isSelected?Theme.of(context).primaryColor:Color(0xffEFEFEF),
             border: Border.all(
               color: Color(0xffDCDCDC),
             )),

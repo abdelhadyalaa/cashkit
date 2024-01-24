@@ -3,13 +3,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class QuestionProg extends StatelessWidget {
   final int widthProg;
-   QuestionProg({Key? key, required this.widthProg,}) : super(key: key);
+
+  QuestionProg({
+    Key? key,
+    required this.widthProg,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(left: 15),
-      width: 240.w,
+      width: 200.w,
       height: 6.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24.sp),
@@ -24,7 +28,7 @@ class QuestionProg extends StatelessWidget {
               gradient: LinearGradient(colors: [
                 Color(0xffAFFE9C),
                 Color(0xff047857).withOpacity(.6),
-                Color(0xff005B3B).withOpacity(.6),
+                Color(0xff005B3B).withOpacity(.8),
               ]),
               borderRadius: BorderRadius.circular(24.sp),
               color: Theme.of(context).primaryColor),
