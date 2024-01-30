@@ -121,9 +121,7 @@ class _QuestionFourScreenState extends State<QuestionFourScreen> {
             ),
           ),
 
-          // QuestionBTNScreen(
-          //   onPrees: () {},
-          // ),
+
         ],
       ),
     );
