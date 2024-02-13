@@ -34,33 +34,30 @@ class SavingScreen extends StatelessWidget {
                 SizedBox(
                   height: 24.h,
                 ),
-                SizedBox(
+                Container(
                   height: 48.h,
                   width: 248.w,
-                  child: TextFormField(
-                    // maxLength: 4,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.white,
+                    border: Border.all(color: Colors.white),
 
-                    textDirection: TextDirection.ltr,
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    keyboardType: TextInputType.number,
-
-                    decoration: InputDecoration(
-                      labelText: "EGP",
-                      labelStyle:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
-                      fillColor: Colors.white,
-                      filled: true,
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey),
-                          borderRadius: BorderRadius.circular(8)),
-                      hintStyle: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 24,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "1000",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w700,color: Theme.of(context).primaryColor),
                       ),
-                    ),
+                      SizedBox(width: 10.w,),
+                      Text(
+                        "EGP",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w700,color: Theme.of(context).primaryColor),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(
@@ -80,36 +77,72 @@ class SavingScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 48.h,),
+                SizedBox(
+                  height: 48.h,
+                ),
                 Row(
                   children: [
                     Spacer(),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                        fixedSize: Size(100.w, 48.h),),
-
-
-
-                      onPressed: (){
-                      showDialog(context: context, builder: (context) =>AlertDialog(
-                        title: Image.asset(""),
-                      ) ,);
-                      }, child: Text("Save")),
-                  Spacer(),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-
-                        fixedSize: Size(100.w, 48.h),
-                        side: BorderSide(color: Theme.of(context).primaryColor),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                          backgroundColor: Colors.white
-
-
-                      ),
-                      onPressed: (){}, child: Text("Cancel",style: TextStyle(color: Theme.of(context).primaryColor),)),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                          fixedSize: Size(100.w, 48.h),
+                        ),
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: Image.asset(
+                                "assets/images/goodsave.png",
+                                width: 118.w,
+                                height: 118.h,
+                              ),
+                              titlePadding: EdgeInsets.symmetric(vertical: 32),
+                              actions: [
+                                Column(
+                                  children: [
+                                    Text(
+                                      "Great choice!",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 23),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        textAlign: TextAlign.center,
+                                        "Now you will save EGP 1000 this month in your saving box.",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 16),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                        child: Text("Save")),
                     Spacer(),
-                ],)
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            fixedSize: Size(100.w, 48.h),
+                            side: BorderSide(
+                                color: Theme.of(context).primaryColor),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8)),
+                            backgroundColor: Colors.white),
+                        onPressed: () {},
+                        child: Text(
+                          "Cancel",
+                          style:
+                              TextStyle(color: Theme.of(context).primaryColor),
+                        )),
+                    Spacer(),
+                  ],
+                ),
               ],
             ),
           ),

@@ -1,5 +1,4 @@
 import 'package:cashkit/core/desgin/questions/question_btn.dart';
-import 'package:cashkit/core/desgin/questions/questions_Containet.dart';
 import 'package:cashkit/core/desgin/questions/questions_prog.dart';
 import 'package:cashkit/screens/questions/q_two/view.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +13,7 @@ class QuestionOneScreen extends StatefulWidget {
 
 class _QuestionOneScreenState extends State<QuestionOneScreen> {
   int? selectIndex;
+
   List images = [
     "assets/images/emojione_shopping-cart.png",
     "assets/images/emojione_mobile-phone.png",

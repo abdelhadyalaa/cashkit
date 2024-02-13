@@ -4,10 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class QuestionBTNScreen extends StatelessWidget {
   final VoidCallback onPrees;
   final bool isSelected;
-  // final Color btnColor ;
-  // final Color borderColor ;
-  // final Color iconColor ;
-  // final Color textColor ;
+
 
    QuestionBTNScreen({Key? key, required this.onPrees,  this.isSelected=false,}) : super(key: key);
 

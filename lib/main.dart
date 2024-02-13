@@ -37,12 +37,12 @@ class MyApp extends StatelessWidget {
           ),
           home: PageView(
             children: [
-              SavingScreen(),
+              // SavingScreen(),
+              IncomeQuestionScreen(),
               // QuestionSexScreen(),
-
+              //
               // QuestionFourScreen(),
-
-              // IncomeQuestionScreen(),
+              //
               // QuestionThreeScreen(),
               // QuestionTwoScreen(),
               // QuestionOneScreen(),
