@@ -1,29 +1,31 @@
 import 'package:cashkit/core/desgin/questions/question_btn.dart';
 import 'package:cashkit/core/desgin/questions/questions_prog.dart';
-import 'package:cashkit/screens/questions/q_four/view.dart';
+import 'package:cashkit/screens/questions/saving/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class QuestionThreeScreen extends StatefulWidget {
-  const QuestionThreeScreen({Key? key}) : super(key: key);
+class QuestionFiveScreen extends StatefulWidget {
+  const QuestionFiveScreen({Key? key}) : super(key: key);
 
   @override
-  State<QuestionThreeScreen> createState() => _QuestionThreeScreenState();
+  State<QuestionFiveScreen> createState() => _QuestionFiveScreenState();
 }
 
-class _QuestionThreeScreenState extends State<QuestionThreeScreen> {
+class _QuestionFiveScreenState extends State<QuestionFiveScreen> {
   int? selectIndex;
   List images = [
-    "assets/images/credit.png",
-    "assets/images/house.png",
-    "assets/images/car.png",
+    "assets/images/person.png",
+    "assets/images/wedding-couple.png",
+    "assets/images/divorce.png",
+    "assets/images/funeral.png",
     "",
   ];
   List text = [
-    "Credit Card",
-    "House Loans",
-    "Personal Loans",
-    "Other",
+    "Single",
+    "married",
+    "Divorced",
+    "Widowed",
+
   ];
 
   @override
@@ -36,7 +38,7 @@ class _QuestionThreeScreenState extends State<QuestionThreeScreen> {
             padding: const EdgeInsets.only(bottom: 50),
             child: QuestionBTNScreen(
               onPrees: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionFourScreen(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SavingScreen(),));
               },
               isSelected: selectIndex != null,
             ),
@@ -46,6 +48,7 @@ class _QuestionThreeScreenState extends State<QuestionThreeScreen> {
           ),
         ],
       ),
+      backgroundColor: Color(0xffEFEFEF),
       body: ListView(
         padding: EdgeInsets.only(left: 16.h, right: 16.h, top: 32.h),
         children: [
@@ -53,6 +56,7 @@ class _QuestionThreeScreenState extends State<QuestionThreeScreen> {
             children: [
               IconButton(
                   onPressed: () {
+                    Navigator.pop(context);
                   },
                   icon: Icon(
                     Icons.arrow_back_ios,
@@ -60,7 +64,7 @@ class _QuestionThreeScreenState extends State<QuestionThreeScreen> {
                     size: 30.sp,
                   )),
               QuestionProg(
-                widthProg: 120,
+                widthProg: 180,
               )
             ],
           ),
@@ -69,7 +73,7 @@ class _QuestionThreeScreenState extends State<QuestionThreeScreen> {
           ),
           Text(
             textAlign: TextAlign.center,
-            'Do you currently have any debt?',
+            'Which of these do you spend money on ?',
             style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 16,
@@ -80,7 +84,7 @@ class _QuestionThreeScreenState extends State<QuestionThreeScreen> {
           ),
           ...List.generate(
             text.length,
-            (index) => InkWell(
+                (index) => InkWell(
               onTap: () {
                 selectIndex = index;
                 setState(() {});
@@ -92,20 +96,19 @@ class _QuestionThreeScreenState extends State<QuestionThreeScreen> {
                 width: 396.w,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: selectIndex == index
-                        ? Colors.white
-                        : Color(0xffEFEFEF),
+                    color:
+                    selectIndex == index ? Theme.of(context).primaryColor: Color(0xffEFEFEF),
                     border: Border.all(
-                      color:  selectIndex == index ? Colors.white: Colors.grey,
+                      color: Colors.grey,
                     )),
                 child: Row(
                   children: [
                     images[index] != null && images[index].isNotEmpty
                         ? Image.asset(
-                            images[index],
-                            width: 24,
-                            height: 24,
-                          )
+                      images[index],
+                      width: 24,
+                      height: 24,
+                    )
                         : SizedBox.shrink(),
                     SizedBox(
                       width: 8.w,
@@ -113,30 +116,15 @@ class _QuestionThreeScreenState extends State<QuestionThreeScreen> {
                     Text(
                       text[index],
                       style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                      TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                     )
                   ],
                 ),
               ),
             ),
           ),
-          SizedBox(
-            height: 32.h,
-          ),
-          GestureDetector(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionFourScreen(),));
-            },
-            child: Center(
-              child: Text(
-                "I don’t currently have a debt",
-                style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: Theme.of(context).primaryColor),
-              ),
-            ),
-          ),
+
+
         ],
       ),
     );

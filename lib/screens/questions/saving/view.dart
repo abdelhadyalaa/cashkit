@@ -1,3 +1,5 @@
+import 'package:animate_do/animate_do.dart';
+import 'package:cashkit/screens/questions/q_sex/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -92,39 +94,52 @@ class SavingScreen extends StatelessWidget {
                         onPressed: () {
                           showDialog(
                             context: context,
-                            builder: (context) => AlertDialog(
-                              title: Image.asset(
-                                "assets/images/goodsave.png",
-                                width: 118.w,
-                                height: 118.h,
-                              ),
-                              titlePadding: EdgeInsets.symmetric(vertical: 32),
-                              actions: [
-                                Column(
-                                  children: [
-                                    Text(
-                                      "Great choice!",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 23),
-                                    ),
-                                    Align(
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        textAlign: TextAlign.center,
-                                        "Now you will save EGP 1000 this month in your saving box.",
+                            builder: (context) {
+                              Future.delayed(Duration(seconds: 3), () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionSexScreen(),)); // Close the dialog
+                              });
+                              return AlertDialog(
+                                title: JelloIn
+                                  (
+                                  duration: Duration(seconds: 2),
+                                  child: Image.asset(
+                                    "assets/images/goodsave.png",
+                                    width: 118.w,
+                                    height: 118.h,
+                                  ),
+                                ),
+                                titlePadding: EdgeInsets.symmetric(vertical: 32),
+                                actions: [
+                                  Column(
+                                    children: [
+                                      Text(
+                                        "Great choice!",
                                         style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 16),
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 23),
                                       ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
+                                      SizedBox(height: 8.h,),
+                                      Align(
+                                        alignment: Alignment.center,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(bottom: 28.0,right: 22,left: 22),
+                                          child: Text(
+                                            textAlign: TextAlign.center,
+                                            "Now you will save EGP 1000 this month in your saving box.",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 16),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              );
+                            },
                           );
                         },
-                        child: Text("Save")),
+                        child: Text("Sure")),
                     Spacer(),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -134,7 +149,9 @@ class SavingScreen extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8)),
                             backgroundColor: Colors.white),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionSexScreen(),));
+                        },
                         child: Text(
                           "Cancel",
                           style:

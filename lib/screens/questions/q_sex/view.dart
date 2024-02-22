@@ -100,10 +100,10 @@ class _QuestionSexScreenState
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     color: selectIndex == index
-                        ? Theme.of(context).primaryColor
+                        ? Colors.white
                         : Color(0xffEFEFEF),
                     border: Border.all(
-                      color: Colors.grey,
+                      color: selectIndex == index ? Colors.white: Colors.grey,
                     )),
                 child: Row(
                   children: [
