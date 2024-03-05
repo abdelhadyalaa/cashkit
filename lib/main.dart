@@ -36,9 +36,9 @@ class MyApp extends StatelessWidget {
           home: PageView(
             children: [
               LogoScreen(),
-              SplashOneScreen(),
-              SplashTwoScreen(),
-              SplashThreeScreen(),
+              // SplashOneScreen(),
+              // SplashTwoScreen(),
+              // SplashThreeScreen(),
               // QuestionOneScreen(),
 
               // SavingScreen(),

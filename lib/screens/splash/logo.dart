@@ -29,14 +29,11 @@ class _LogoScreenState extends State<LogoScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Swing(
-              duration: Duration(seconds: 3),
-              child: FadeInDown(
-                  duration: Duration(seconds: 3),
-                  child: Image.asset(
-                    "assets/images/Logo.png",
-                  )),
-            ),
+            FadeInDown(
+                duration: Duration(seconds: 3),
+                child: Image.asset(
+                  "assets/images/Logo.png",
+                )),
             SizedBox(height: 18.h,),
             ElasticInUp(
               duration: Duration(seconds: 3),
