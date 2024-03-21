@@ -1,4 +1,10 @@
 import 'package:cashkit/core/res/colors.dart';
+import 'package:cashkit/screens/profile/credit_card/addcard_view.dart';
+import 'package:cashkit/screens/profile/credit_card/addmoney_view.dart';
+import 'package:cashkit/screens/profile/credit_card/home_view.dart';
+import 'package:cashkit/screens/profile/edit_profile/view.dart';
+import 'package:cashkit/screens/profile/questions/view.dart';
+import 'package:cashkit/screens/profile/view.dart';
 import 'package:cashkit/screens/questions/q_one/view.dart';
 import 'package:cashkit/screens/questions/saving/view.dart';
 import 'package:cashkit/screens/splash/logo.dart';
@@ -35,7 +41,13 @@ class MyApp extends StatelessWidget {
           ),
           home: PageView(
             children: [
-              LogoScreen(),
+              AddMoneyScreen(),
+              // AddCardScreen(),
+              // CreditHomeScreen(),
+              // EditQuestionScreen(),
+              // EditProfileScreen(),
+              // ProfileScreen(),
+              // LogoScreen(),
               // SplashOneScreen(),
               // SplashTwoScreen(),
               // SplashThreeScreen(),
