@@ -1,4 +1,5 @@
 import 'package:cashkit/core/res/colors.dart';
+import 'package:cashkit/screens/notifications/view.dart';
 import 'package:cashkit/screens/profile/credit_card/addcard_view.dart';
 import 'package:cashkit/screens/profile/credit_card/addmoney_view.dart';
 import 'package:cashkit/screens/profile/credit_card/home_view.dart';
@@ -41,7 +42,8 @@ class MyApp extends StatelessWidget {
           ),
           home: PageView(
             children: [
-              AddMoneyScreen(),
+              NotificationsScreen(),
+              // AddMoneyScreen(),
               // AddCardScreen(),
               // CreditHomeScreen(),
               // EditQuestionScreen(),
