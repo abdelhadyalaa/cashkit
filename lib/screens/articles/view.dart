@@ -7,6 +7,16 @@ class ArticlesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+
+        leading:IconButton(
+          icon:Icon(Icons.arrow_back_ios),
+          onPressed: (){
+          //  put here name of Home screen
+          }
+        ),
+      ),
       backgroundColor: Theme.of(context).primaryColor,
       body: ListView(
         children: [

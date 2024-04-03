@@ -44,8 +44,8 @@ class MyApp extends StatelessWidget {
           ),
           home: PageView(
             children: [
-              ArticlesHomeScreen(),
-              // ArticlesScreen(),
+              // ArticlesHomeScreen(),
+              ArticlesScreen(),
               // NotificationsScreen(),
               // AddMoneyScreen(),
               // AddCardScreen(),

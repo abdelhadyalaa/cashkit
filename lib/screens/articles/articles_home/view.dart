@@ -1,3 +1,4 @@
+import 'package:cashkit/screens/articles/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -32,59 +33,64 @@ class ArticlesHomeScreen extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           // physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemBuilder: (context, index) => Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 16),
-                    height: 140.h,
-                    width: 116,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      color: Theme.of(context).primaryColor,
-                    ),
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          images[index],
-                          width: 86.w,
-                          height: 86.h,
-                        ),
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          height: 54.h,
-                          width: 116.w,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              color: Colors.white),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                upTitle[index],
-                                style: TextStyle(
-                                    fontSize: 10, fontWeight: FontWeight.w500),
-                              ),
-                              Text(
-                                downTitle[index],
-                                style: TextStyle(
-                                    fontSize: 10, fontWeight: FontWeight.w500),
-                              ),
-                              Text("Reed",
-                                  style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 8,
-                                      fontWeight: FontWeight.w400,
-                                      decoration: TextDecoration.underline)),
-                            ],
+          itemBuilder: (context, index) => GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ArticlesScreen(),));
+            },
+            child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 16),
+                      height: 140.h,
+                      width: 116,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            images[index],
+                            width: 86.w,
+                            height: 86.h,
                           ),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            height: 54.h,
+                            width: 116.w,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                                color: Colors.white),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  upTitle[index],
+                                  style: TextStyle(
+                                      fontSize: 10, fontWeight: FontWeight.w500),
+                                ),
+                                Text(
+                                  downTitle[index],
+                                  style: TextStyle(
+                                      fontSize: 10, fontWeight: FontWeight.w500),
+                                ),
+                                Text("Reed",
+                                    style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 8,
+                                        fontWeight: FontWeight.w400,
+                                        decoration: TextDecoration.underline)),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+          ),
           itemCount: images.length),
     );
   }
