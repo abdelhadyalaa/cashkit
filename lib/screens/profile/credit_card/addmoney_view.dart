@@ -1,3 +1,4 @@
+import 'package:cashkit/screens/profile/credit_card/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -44,7 +45,7 @@ class AddMoneyScreen extends StatelessWidget {
                 color: Colors.white, borderRadius: BorderRadius.circular(8)),
             child: Center(
               child: TextFormField(
-                keyboardType: TextInputType.text,
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                     contentPadding: EdgeInsets.symmetric(horizontal: 100),
                     border: InputBorder.none,
@@ -63,7 +64,13 @@ class AddMoneyScreen extends StatelessWidget {
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     fixedSize: Size(double.infinity.w, 56.h)),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CreditHomeScreen(),
+                      ));
+                },
                 child: Text(
                   "Add Money",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),

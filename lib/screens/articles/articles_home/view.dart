@@ -34,10 +34,14 @@ class ArticlesHomeScreen extends StatelessWidget {
           // physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (context, index) => GestureDetector(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ArticlesScreen(),));
-            },
-            child: Column(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ArticlesScreen(),
+                      ));
+                },
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -69,12 +73,14 @@ class ArticlesHomeScreen extends StatelessWidget {
                                 Text(
                                   upTitle[index],
                                   style: TextStyle(
-                                      fontSize: 10, fontWeight: FontWeight.w500),
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w500),
                                 ),
                                 Text(
                                   downTitle[index],
                                   style: TextStyle(
-                                      fontSize: 10, fontWeight: FontWeight.w500),
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w500),
                                 ),
                                 Text("Reed",
                                     style: TextStyle(
@@ -90,7 +96,7 @@ class ArticlesHomeScreen extends StatelessWidget {
                     )
                   ],
                 ),
-          ),
+              ),
           itemCount: images.length),
     );
   }

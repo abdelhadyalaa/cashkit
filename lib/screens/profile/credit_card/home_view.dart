@@ -1,3 +1,4 @@
+import 'package:cashkit/screens/profile/credit_card/addcard_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -6,6 +7,17 @@ class CreditHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List images=[
+      "assets/images/credit1.png",
+      "assets/images/credit2.png",
+      "assets/images/credit3.png",
+      "assets/images/credit1.png",
+      "assets/images/credit2.png",
+      "assets/images/credit3.png",
+      "assets/images/credit1.png",
+      "assets/images/credit2.png",
+      "assets/images/credit3.png",
+    ];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xffEFEFEF),
@@ -22,7 +34,7 @@ class CreditHomeScreen extends StatelessWidget {
         centerTitle: true,
       ),
       bottomNavigationBar: GestureDetector(
-        onTap: (){},
+        onTap: () {},
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           width: double.infinity.w,
@@ -32,22 +44,29 @@ class CreditHomeScreen extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.add_circle_outline,
-                color: Colors.grey,
-              ),
-              SizedBox(width: 10.w,),
-              Text(
-                "Add Card",
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16),
-              )
-            ],
+          child: GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => AddCardScreen(),));
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.add_circle_outline,
+                  color: Colors.grey,
+                ),
+                SizedBox(
+                  width: 10.w,
+                ),
+                Text(
+                  "Add Card",
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16),
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -62,21 +81,19 @@ class CreditHomeScreen extends StatelessWidget {
             ),
           ),
           ...List.generate(
-            2,
+            images.length,
             (index) => Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20.0),
-                  child: Image.asset("assets/images/credit1.png"),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => AddCardScreen(),));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20.0),
+                    child: Image.asset(images[index]),
+                  ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20.0),
-                  child: Image.asset("assets/images/credit2.png"),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20.0),
-                  child: Image.asset("assets/images/credit3.png"),
-                ),
+
               ],
             ),
           )

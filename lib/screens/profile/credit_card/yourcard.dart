@@ -1,10 +1,8 @@
-import 'package:cashkit/screens/profile/credit_card/addmoney_view.dart';
-import 'package:cashkit/screens/profile/credit_card/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AddCardScreen extends StatelessWidget {
-  const AddCardScreen({Key? key}) : super(key: key);
+class YourCardScreen extends StatelessWidget {
+  const YourCardScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +109,7 @@ class AddCardScreen extends StatelessWidget {
                 child: Center(
                   child: Text("12/24",
                       style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
+                      TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
                 ),
               ),
               Container(
@@ -124,7 +122,7 @@ class AddCardScreen extends StatelessWidget {
                 child: Center(
                   child: Text("267",
                       style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
+                      TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
                 ),
               ),
             ],
@@ -151,51 +149,36 @@ class AddCardScreen extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 60,
+            height: 20.h,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      fixedSize: Size(150.w, 45.h),
-                      backgroundColor: Theme.of(context).primaryColor),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AddMoneyScreen(),
-                        ));
-
-                  },
-                  child: Text(
-                    "Save",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white),
-                  )),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      side: BorderSide(color: Theme.of(context).primaryColor),
-                      fixedSize: Size(150.w, 45.h),
-                      backgroundColor: Colors.white),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CreditHomeScreen(),
-                        ));
-                  },
-                  child: Text(
-                    "Cancel",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: Theme.of(context).primaryColor),
-                  )),
-            ],
-          )
+          Text(
+            "Amount",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          SizedBox(
+            height: 16.h,
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 12, right: 12),
+            width: double.infinity.w,
+            height: 56.h,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8), color: Colors.white),
+            child: Row(
+              children: [
+                SizedBox(
+                  width: 8.w,
+                ),
+                Text(
+                  "EGP 30000",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
