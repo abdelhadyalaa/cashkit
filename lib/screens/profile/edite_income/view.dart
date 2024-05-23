@@ -1,20 +1,21 @@
 import 'package:cashkit/core/desgin/questions/question_btn.dart';
 import 'package:cashkit/core/desgin/questions/questions_prog.dart';
 import 'package:cashkit/screens/questions/q_five/view.dart';
+import 'package:cashkit/screens/questions/q_sex/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class QuestionFourScreen extends StatefulWidget {
-  QuestionFourScreen({
+class EditIncomeScreen extends StatefulWidget {
+  EditIncomeScreen({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<QuestionFourScreen> createState() => _QuestionFourScreenState();
+  State<EditIncomeScreen> createState() => _EditIncomeScreenState();
 }
 
-class _QuestionFourScreenState extends State<QuestionFourScreen> {
+class _EditIncomeScreenState extends State<EditIncomeScreen> {
   final TextEditingController _controller = TextEditingController();
 
   bool _isTextFieldEmpty = true;
@@ -36,6 +37,7 @@ class _QuestionFourScreenState extends State<QuestionFourScreen> {
     _controller.dispose();
     super.dispose();
   }
+
   bool _isFirstContainerGreen = true;
 
   void _toggleColors() {
@@ -49,73 +51,32 @@ class _QuestionFourScreenState extends State<QuestionFourScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 50),
-            child: GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionFiveScreen(),));
-              },
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                margin: EdgeInsets.only(left: 230),
-                height: 44.h,
-                width: 124.w,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: _isTextFieldEmpty ? Color(0xffEFEFEF) : Theme.of(context).primaryColor,
-                    border: Border.all(
-                      color: Color(0xffDCDCDC),
-                    )),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.arrow_forward,
-                      size: 14,
-                      color: Color(0xffDCDCDC),
-                    ),
-                    SizedBox(
-                      width: 4.w,
-                    ),
-                    Text(
-                      "Continue",
-                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14,color: Color(0xffDCDCDC),),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 20.h,
-          ),
-        ],
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Color(0xffEFEFEF),
+        leading: IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+              size: 30.sp,
+            )),
+        title: Text(
+          "Edit Income",
+          style: TextStyle(
+              fontWeight: FontWeight.w600, fontSize: 20, color: Colors.black),
+        ),
+        centerTitle: true,
       ),
       body: ListView(
         padding: EdgeInsets.only(left: 16.h, right: 16.h, top: 32.h),
         children: [
-          Row(
-            children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.black,
-                    size: 30.sp,
-                  )),
-              QuestionProg(
-                widthProg: 160,
-              )
-            ],
-          ),
           SizedBox(
             height: 48,
           ),
           Text(
             textAlign: TextAlign.center,
-            'What is your edite_income over the week / month?',
+            'What is your income over the week / month?',
             style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 16,
@@ -218,6 +179,40 @@ class _QuestionFourScreenState extends State<QuestionFourScreen> {
                 ),
               ],
             ),
+          ),
+          SizedBox(height: 20.h,),
+          Row(
+            children: [
+              Spacer(),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    fixedSize: Size(100.w, 48.h),
+                  ),
+                  onPressed: () {
+
+                  },
+                  child: Text("Sure")),
+              Spacer(),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      fixedSize: Size(100.w, 48.h),
+                      side: BorderSide(
+                          color: Theme.of(context).primaryColor),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      backgroundColor: Colors.white),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionSexScreen(),));
+                  },
+                  child: Text(
+                    "Cancel",
+                    style:
+                    TextStyle(color: Theme.of(context).primaryColor),
+                  )),
+              Spacer(),
+            ],
           ),
 
           // Initial toggle state

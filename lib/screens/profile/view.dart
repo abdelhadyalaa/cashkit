@@ -1,3 +1,7 @@
+import 'package:cashkit/screens/profile/credit_card/home_view.dart';
+import 'package:cashkit/screens/profile/edit_profile/view.dart';
+import 'package:cashkit/screens/profile/rosca_template/rosca_home/view.dart';
+import 'package:cashkit/screens/questions/q_one/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,6 +32,15 @@ class ProfileScreen extends StatelessWidget {
     ];
     List<Widget> pages = [
       //  here pages which navegetion
+      EditProfileScreen(),
+      QuestionOneScreen(),
+      EditProfileScreen(),
+      EditProfileScreen(),
+      EditProfileScreen(),
+      RoscaHomeScreen(),
+      CreditHomeScreen(),
+      EditProfileScreen(),
+      EditProfileScreen(),
 
 
     ];
@@ -115,7 +128,10 @@ class ProfileScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    IconButton(onPressed: (){}, icon: Icon(Icons.arrow_forward_ios_rounded,color: Colors.black,size: 16,))
+                    IconButton(onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => pages[index],));
+
+                    }, icon: Icon(Icons.arrow_forward_ios_rounded,color: Colors.black,size: 16,))
 
                   ],
                 ),

@@ -39,7 +39,11 @@ class _QuestionOneScreenState extends State<QuestionOneScreen> {
             padding: const EdgeInsets.only(bottom: 50),
             child: QuestionBTNScreen(
               onPrees: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionTwoScreen(),));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => QuestionTwoScreen(),
+                    ));
               },
               isSelected: selectIndex != null,
             ),
@@ -98,9 +102,9 @@ class _QuestionOneScreenState extends State<QuestionOneScreen> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     color:
-                        selectIndex == index ? Colors.white: Color(0xffEFEFEF),
+                        selectIndex == index ? Colors.white : Color(0xffEFEFEF),
                     border: Border.all(
-                      color: selectIndex == index ? Colors.white: Colors.grey,
+                      color: selectIndex == index ? Colors.white : Colors.grey,
                     )),
                 child: Row(
                   children: [
@@ -124,10 +128,6 @@ class _QuestionOneScreenState extends State<QuestionOneScreen> {
               ),
             ),
           ),
-
-          // QuestionBTNScreen(
-          //   onPrees: () {},
-          // ),
         ],
       ),
     );

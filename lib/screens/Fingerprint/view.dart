@@ -2,6 +2,7 @@ import 'package:cashkit/screens/splash/logo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:local_auth/local_auth.dart';
 
 class FingerPrintScreen extends StatefulWidget {
@@ -16,7 +17,6 @@ class _FingerPrintScreenState extends State<FingerPrintScreen> {
   _SupportState _supportState = _SupportState.unknown;
   String _authorized = 'Not Authorized';
   bool _isAuthenticating = false;
-  bool _isSuccessed = false;
 
   @override
   void initState() {
@@ -57,8 +57,12 @@ class _FingerPrintScreenState extends State<FingerPrintScreen> {
     if (!mounted) {
       return;
     }
-    if (authenticated){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => LogoScreen(),));
+    if (authenticated) {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LogoScreen(),
+          ));
       // Here Put Where we should Push!!!!
     }
 
@@ -68,35 +72,53 @@ class _FingerPrintScreenState extends State<FingerPrintScreen> {
     });
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
+        backgroundColor: Colors.white,
         body: ListView(
-          padding: const EdgeInsets.only(top: 30),
+          padding: const EdgeInsets.only(top: 100),
           children: <Widget>[
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('Current State: $_authorized\n'),
+                Text(
+                  "Authentication Required",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                ),
+                Text(
+                  "Please place your finger to your phone!",
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                ),
+                SizedBox(
+                  height: 112,
+                ),
                 Column(
                   children: <Widget>[
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white, elevation: 0),
                       onPressed: _authenticateWithBiometrics,
-                      child: Row(
+                      child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          Text(_isAuthenticating ? 'Cancel' : 'Get In'),
-                          const Icon(Icons.fingerprint),
+                          Image.asset(
+                            _isAuthenticating
+                                ? "assets/images/scanning.png"
+                                : "assets/images/finger.png",
+                          ),
                         ],
                       ),
                     ),
-
+                    SizedBox(
+                      height: 50.h,
+                    ),
+                    Text(
+                      _isAuthenticating ? "Scanning..." : "Tab To Check...!",
+                      style: TextStyle(color: Colors.black),
+                    )
                   ],
                 ),
               ],

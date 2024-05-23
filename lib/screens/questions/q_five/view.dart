@@ -25,7 +25,6 @@ class _QuestionFiveScreenState extends State<QuestionFiveScreen> {
     "married",
     "Divorced",
     "Widowed",
-
   ];
 
   @override
@@ -73,7 +72,7 @@ class _QuestionFiveScreenState extends State<QuestionFiveScreen> {
           ),
           Text(
             textAlign: TextAlign.center,
-            'Which of these do you spend money on ?',
+            "What is your marital status ?",
             style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 16,
@@ -97,9 +96,9 @@ class _QuestionFiveScreenState extends State<QuestionFiveScreen> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     color:
-                    selectIndex == index ? Theme.of(context).primaryColor: Color(0xffEFEFEF),
+                    selectIndex == index ? Colors.white: Color(0xffEFEFEF),
                     border: Border.all(
-                      color: Colors.grey,
+                      color: selectIndex == index ? Colors.white: Colors.grey,
                     )),
                 child: Row(
                   children: [
@@ -124,7 +123,9 @@ class _QuestionFiveScreenState extends State<QuestionFiveScreen> {
             ),
           ),
 
-
+          // QuestionBTNScreen(
+          //   onPrees: () {},
+          // ),
         ],
       ),
     );

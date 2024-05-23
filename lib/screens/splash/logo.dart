@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:animate_do/animate_do.dart';
-import 'package:cashkit/screens/splash/splash_one.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +16,7 @@ class _LogoScreenState extends State<LogoScreen> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 5), () {
-      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>SplashOneScreen()), (route) => false);
+      // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>SplashOneScreen()), (route) => false);
     });
   }
 

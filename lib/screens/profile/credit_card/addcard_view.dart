@@ -81,14 +81,14 @@ class AddCardScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8), color: Colors.white),
             child: Row(
               children: [
-                SizedBox(
-                  width: 8.w,
+                Expanded(
+                  child: TextFormField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+
+                    ),
+                  ),
                 ),
-                Text(
-                  "1257 9786 9532 6009",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                ),
-                Spacer(),
                 Image.asset("assets/images/mastercard.png"),
               ],
             ),
@@ -132,7 +132,15 @@ class AddCardScreen extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
+          Text(
+            "Your Name",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
           Container(
+            margin: EdgeInsets.only(top: 12),
             padding: EdgeInsets.only(left: 12, right: 12),
             width: double.infinity.w,
             height: 56.h,
@@ -143,9 +151,12 @@ class AddCardScreen extends StatelessWidget {
                 SizedBox(
                   width: 8.w,
                 ),
-                Text(
-                  "Lena Adel",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                Expanded(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+
+                    ),
+                  ),
                 ),
               ],
             ),

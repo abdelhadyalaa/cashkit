@@ -8,14 +8,20 @@ import 'package:cashkit/screens/profile/credit_card/addmoney_view.dart';
 import 'package:cashkit/screens/profile/credit_card/home_view.dart';
 import 'package:cashkit/screens/profile/credit_card/yourcard.dart';
 import 'package:cashkit/screens/profile/edit_profile/view.dart';
+import 'package:cashkit/screens/profile/edite_income/view.dart';
+import 'package:cashkit/screens/profile/questions/edit_quesone/view.dart';
 import 'package:cashkit/screens/profile/questions/view.dart';
+import 'package:cashkit/screens/profile/rosca_template/add_member/view.dart';
+import 'package:cashkit/screens/profile/rosca_template/create_rosca/view.dart';
+import 'package:cashkit/screens/profile/rosca_template/rosca_home/view.dart';
 import 'package:cashkit/screens/profile/view.dart';
+import 'package:cashkit/screens/questions/q_five/view.dart';
+import 'package:cashkit/screens/questions/q_four/view.dart';
 import 'package:cashkit/screens/questions/q_one/view.dart';
 import 'package:cashkit/screens/questions/saving/view.dart';
 import 'package:cashkit/screens/splash/logo.dart';
-import 'package:cashkit/screens/splash/splash_one.dart';
-import 'package:cashkit/screens/splash/splash_three.dart';
-import 'package:cashkit/screens/splash/splash_two.dart';
+
+import 'package:cashkit/test.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -46,26 +52,8 @@ class MyApp extends StatelessWidget {
           ),
           home: PageView(
             children: [
-              FingerPrintScreen(),
-              // ArticlesHomeScreen(),
-              // ArticlesScreen(),
-              // NotificationsScreen(),
-              // YourCardScreen(),
-              // AddMoneyScreen(),
-              // AddCardScreen(),
-              // CreditHomeScreen(),
-              // EditQuestionScreen(),
-              // EditProfileScreen(),
-              // ProfileScreen(),
-              // LogoScreen(),
-              // SplashOneScreen(),
-              // SplashTwoScreen(),
-              // SplashThreeScreen(),
-              // QuestionOneScreen(),
-
-              // SavingScreen(),
-              // LogoScreen(),
-              // QuestionOneScreen(),
+              // EditQuestionOne(),
+              EditAllQuestionScreen(),
             ],
           ),
         );
