@@ -8,9 +8,9 @@ import 'package:cashkit/screens/profile/credit_card/addmoney_view.dart';
 import 'package:cashkit/screens/profile/credit_card/home_view.dart';
 import 'package:cashkit/screens/profile/credit_card/yourcard.dart';
 import 'package:cashkit/screens/profile/edit_profile/view.dart';
+import 'package:cashkit/screens/profile/edit_questions/view.dart';
+import 'package:cashkit/screens/profile/edit_savingbox/view.dart';
 import 'package:cashkit/screens/profile/edite_income/view.dart';
-import 'package:cashkit/screens/profile/questions/edit_quesone/view.dart';
-import 'package:cashkit/screens/profile/questions/view.dart';
 import 'package:cashkit/screens/profile/rosca_template/add_member/view.dart';
 import 'package:cashkit/screens/profile/rosca_template/create_rosca/view.dart';
 import 'package:cashkit/screens/profile/rosca_template/rosca_home/view.dart';
@@ -52,8 +52,17 @@ class MyApp extends StatelessWidget {
           ),
           home: PageView(
             children: [
-              // EditQuestionOne(),
               EditAllQuestionScreen(),
+              // CreatRosca(),
+              // NotificationsScreen(),
+              // ProfileScreen(),
+              // EditSavingBox(),
+              // EditIncomeScreen(),
+              // EditProfileScreen(),
+              // AddCardScreen(),
+              // AddMoneyScreen(),
+              // EditQuestionOne(),
+              // EditAllQuestionScreen(),
             ],
           ),
         );

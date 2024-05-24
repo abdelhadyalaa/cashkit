@@ -51,13 +51,13 @@ class SavingScreen extends StatelessWidget {
                       Text(
                         "1000",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w700,color: Theme.of(context).primaryColor),
+                            fontSize: 16, fontWeight: FontWeight.w700,color: Colors.black),
                       ),
                       SizedBox(width: 10.w,),
                       Text(
                         "EGP",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w700,color: Theme.of(context).primaryColor),
+                            fontSize: 16, fontWeight: FontWeight.w700,color: Colors.black),
                       ),
                     ],
                   ),

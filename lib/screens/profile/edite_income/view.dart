@@ -76,7 +76,7 @@ class _EditIncomeScreenState extends State<EditIncomeScreen> {
           ),
           Text(
             textAlign: TextAlign.center,
-            'What is your income over the week / month?',
+            'What is your income over \nthe week / month?',
             style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 16,
@@ -88,40 +88,50 @@ class _EditIncomeScreenState extends State<EditIncomeScreen> {
           Container(
             height: 68.h,
             width: double.infinity,
-            margin: EdgeInsets.symmetric(horizontal: 90),
+            margin: EdgeInsets.symmetric(horizontal: 60),
+            padding: EdgeInsets.only(left: 40.0.w, top: 10.h, right: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: Colors.white,
             ),
             child: Center(
-              child: Padding(
-                padding: EdgeInsets.only(left: 10.0.w, top: 10.h, right: 10),
-                child: TextFormField(
-                  controller: _controller,
-                  textDirection: TextDirection.ltr,
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "EGP",
+                    style: TextStyle(fontSize: 22),
                   ),
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    labelText: "EGP",
-                    labelStyle: TextStyle(
-                      color: Colors.black,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600,
+                  Expanded(
+                    child: TextFormField(
+                      controller: _controller,
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "000",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
                     ),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                        borderRadius: BorderRadius.circular(8)),
                   ),
-                ),
+                ],
               ),
             ),
           ),
 
           SizedBox(
-            height: 20,
+            height: 32,
           ),
           Center(
             child: Row(
@@ -180,7 +190,9 @@ class _EditIncomeScreenState extends State<EditIncomeScreen> {
               ],
             ),
           ),
-          SizedBox(height: 20.h,),
+          SizedBox(
+            height: 100.h,
+          ),
           Row(
             children: [
               Spacer(),
@@ -190,26 +202,26 @@ class _EditIncomeScreenState extends State<EditIncomeScreen> {
                         borderRadius: BorderRadius.circular(8)),
                     fixedSize: Size(100.w, 48.h),
                   ),
-                  onPressed: () {
-
-                  },
+                  onPressed: () {},
                   child: Text("Sure")),
               Spacer(),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       fixedSize: Size(100.w, 48.h),
-                      side: BorderSide(
-                          color: Theme.of(context).primaryColor),
+                      side: BorderSide(color: Theme.of(context).primaryColor),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8)),
                       backgroundColor: Colors.white),
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionSexScreen(),));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => QuestionSexScreen(),
+                        ));
                   },
                   child: Text(
                     "Cancel",
-                    style:
-                    TextStyle(color: Theme.of(context).primaryColor),
+                    style: TextStyle(color: Theme.of(context).primaryColor),
                   )),
               Spacer(),
             ],

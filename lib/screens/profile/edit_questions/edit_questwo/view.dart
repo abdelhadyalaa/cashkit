@@ -1,22 +1,18 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
-class EditQuestionFive extends StatefulWidget {
+class EditQuestionTwo extends StatefulWidget {
   @override
-  _EditQuestionFiveState createState() =>
-      _EditQuestionFiveState();
+  _EditQuestionTwoState createState() => _EditQuestionTwoState();
 }
 
-class _EditQuestionFiveState extends State<EditQuestionFive> {
-  final TextEditingController _controller = TextEditingController();
+class _EditQuestionTwoState extends State<EditQuestionTwo> {
   final List<String> items = [
-    "I don't have children",
-    "1",
-    "2",
-    "3",
-    "+3"
+    "I rent",
+    "I own",
+    "Other",
   ];
-  String? selectedValue='2';
+  String? selectedValue = "I rent";
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +21,8 @@ class _EditQuestionFiveState extends State<EditQuestionFive> {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-
           children: [
-            Text("Enter how many children do you have?",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
+            Text('Tell us about your home',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
             SizedBox(height: 16,),
             DropdownButtonHideUnderline(
               child: DropdownButton2<String>(
@@ -72,8 +67,8 @@ class _EditQuestionFiveState extends State<EditQuestionFive> {
                 },
                 buttonStyleData: ButtonStyleData(
                   height: 50,
-                  width: double.infinity,
-                  padding: const EdgeInsets.only(left: 14, right: 14),
+                  // width: double.infinity,
+                  padding: const EdgeInsets.only(right: 14),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
                     border: Border.all(
@@ -97,8 +92,8 @@ class _EditQuestionFiveState extends State<EditQuestionFive> {
                 ),
                 dropdownStyleData: DropdownStyleData(
                   maxHeight: 200,
-                  width: double.infinity,
-                  scrollPadding: EdgeInsets.symmetric(horizontal: 14),
+                  // width: double.infinity,
+                  // scrollPadding: EdgeInsets.symmetric(horizontal: 14),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
                     color: Colors.white,

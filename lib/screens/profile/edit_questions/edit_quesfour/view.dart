@@ -1,22 +1,21 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
-class EditQuestionSix extends StatefulWidget {
+class EditQuestionFour extends StatefulWidget {
   @override
-  _EditQuestionSixState createState() => _EditQuestionSixState();
+  _EditQuestionFourState createState() =>
+      _EditQuestionFourState();
 }
 
-class _EditQuestionSixState extends State<EditQuestionSix> {
+class _EditQuestionFourState extends State<EditQuestionFour> {
   final TextEditingController _controller = TextEditingController();
   final List<String> items = [
-    "Tracking incomes and expenses",
-    "Mange debts, loans",
-    "Cut down expenses",
-    "Saving",
-    "Manage all money in one place",
-    "Other goals",
+    "Single",
+    "married",
+    "Divorced",
+    "Widowed",
   ];
-  String? selectedValue="Manage all money in one place";
+  String? selectedValue="married";
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +25,8 @@ class _EditQuestionSixState extends State<EditQuestionSix> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Which of these do you spend money on ?",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-            ),
-            SizedBox(
-              height: 16,
-            ),
+            Text("What is your marital status ?",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
+            SizedBox(height: 16,),
             DropdownButtonHideUnderline(
               child: DropdownButton2<String>(
                 isExpanded: true,
@@ -56,17 +50,17 @@ class _EditQuestionSixState extends State<EditQuestionSix> {
                 ),
                 items: items
                     .map((String item) => DropdownMenuItem<String>(
-                          value: item,
-                          child: Text(
-                            item,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black,
-                            ),
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ))
+                  value: item,
+                  child: Text(
+                    item,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ))
                     .toList(),
                 value: selectedValue,
                 onChanged: (value) {
@@ -76,8 +70,8 @@ class _EditQuestionSixState extends State<EditQuestionSix> {
                 },
                 buttonStyleData: ButtonStyleData(
                   height: 50,
-                  width: double.infinity,
-                  padding: const EdgeInsets.only(left: 14, right: 14),
+                  // width: double.infinity,
+                  padding: const EdgeInsets.only(right: 14),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
                     border: Border.all(
@@ -101,8 +95,8 @@ class _EditQuestionSixState extends State<EditQuestionSix> {
                 ),
                 dropdownStyleData: DropdownStyleData(
                   maxHeight: 200,
-                  width: double.infinity,
-                  scrollPadding: EdgeInsets.symmetric(horizontal: 14),
+                  // width: double.infinity,
+                  // scrollPadding: EdgeInsets.symmetric(horizontal: 14),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
                     color: Colors.white,

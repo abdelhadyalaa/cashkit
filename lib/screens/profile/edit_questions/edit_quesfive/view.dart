@@ -1,34 +1,31 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
-class EditQuestionOne extends StatefulWidget {
+class EditQuestionFive extends StatefulWidget {
   @override
-  _EditQuestionOneState createState() =>
-      _EditQuestionOneState();
+  _EditQuestionFiveState createState() => _EditQuestionFiveState();
 }
 
-class _EditQuestionOneState extends State<EditQuestionOne> {
+class _EditQuestionFiveState extends State<EditQuestionFive> {
   final TextEditingController _controller = TextEditingController();
-  final List<String> items = [
-    'Groceries',
-    'Phones',
-    'Personal Care',
-    'Clothing ',
-    'Other',
-  ];
-  String? selectedValue="Groceries";
+  final List<String> items = ["I don't have children", "1", "2", "3", "+3"];
+  String? selectedValue = '2';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Which of these do you spend money on ?",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
-            SizedBox(height: 16,),
+            Text(
+              "Enter how many children do you have?",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            ),
+            SizedBox(
+              height: 16,
+            ),
             DropdownButtonHideUnderline(
               child: DropdownButton2<String>(
                 isExpanded: true,
@@ -52,17 +49,17 @@ class _EditQuestionOneState extends State<EditQuestionOne> {
                 ),
                 items: items
                     .map((String item) => DropdownMenuItem<String>(
-                  value: item,
-                  child: Text(
-                    item,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ))
+                          value: item,
+                          child: Text(
+                            item,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ))
                     .toList(),
                 value: selectedValue,
                 onChanged: (value) {

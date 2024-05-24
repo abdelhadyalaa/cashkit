@@ -1,20 +1,22 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
-class EditQuestionThree extends StatefulWidget {
+class EditQuestionSix extends StatefulWidget {
   @override
-  _EditQuestionThreeState createState() => _EditQuestionThreeState();
+  _EditQuestionSixState createState() => _EditQuestionSixState();
 }
 
-class _EditQuestionThreeState extends State<EditQuestionThree> {
+class _EditQuestionSixState extends State<EditQuestionSix> {
   final TextEditingController _controller = TextEditingController();
   final List<String> items = [
-    "Credit Card",
-    "House Loans",
-    "Personal Loans",
-    "Other",
+    "Tracking incomes and expenses",
+    "Mange debts, loans",
+    "Cut down expenses",
+    "Saving",
+    "Manage all money in one place",
+    "Other goals",
   ];
-  String? selectedValue="House Loans";
+  String? selectedValue = "Manage all money in one place";
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +25,9 @@ class _EditQuestionThreeState extends State<EditQuestionThree> {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-
           children: [
             Text(
-              'Do you currently have any debt?',
+              "Which of these do you spend money on ?",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
             SizedBox(
@@ -75,8 +76,8 @@ class _EditQuestionThreeState extends State<EditQuestionThree> {
                 },
                 buttonStyleData: ButtonStyleData(
                   height: 50,
-                  width: double.infinity,
-                  padding: const EdgeInsets.only(left: 14, right: 14),
+                  // width: double.infinity,
+                  padding: const EdgeInsets.only(right: 14),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
                     border: Border.all(
@@ -100,8 +101,8 @@ class _EditQuestionThreeState extends State<EditQuestionThree> {
                 ),
                 dropdownStyleData: DropdownStyleData(
                   maxHeight: 200,
-                  width: double.infinity,
-                  scrollPadding: EdgeInsets.symmetric(horizontal: 14),
+                  // width: double.infinity,
+                  // scrollPadding: EdgeInsets.symmetric(horizontal: 14),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
                     color: Colors.white,

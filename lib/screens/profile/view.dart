@@ -1,5 +1,8 @@
 import 'package:cashkit/screens/profile/credit_card/home_view.dart';
 import 'package:cashkit/screens/profile/edit_profile/view.dart';
+import 'package:cashkit/screens/profile/edit_questions/view.dart';
+import 'package:cashkit/screens/profile/edit_savingbox/view.dart';
+import 'package:cashkit/screens/profile/edite_income/view.dart';
 import 'package:cashkit/screens/profile/rosca_template/rosca_home/view.dart';
 import 'package:cashkit/screens/questions/q_one/view.dart';
 import 'package:flutter/material.dart';
@@ -32,17 +35,15 @@ class ProfileScreen extends StatelessWidget {
     ];
     List<Widget> pages = [
       //  here pages which navegetion
-      EditProfileScreen(),
-      QuestionOneScreen(),
-      EditProfileScreen(),
+
+      EditAllQuestionScreen(),
+      EditIncomeScreen(),
+      EditSavingBox(),
       EditProfileScreen(),
       EditProfileScreen(),
       RoscaHomeScreen(),
       CreditHomeScreen(),
       EditProfileScreen(),
-      EditProfileScreen(),
-
-
     ];
     return SafeArea(
       child: Scaffold(
@@ -63,11 +64,9 @@ class ProfileScreen extends StatelessWidget {
               height: 16.h,
             ),
             Container(
-
               height: 80.h,
               width: double.infinity.w,
               decoration: BoxDecoration(
-
                 borderRadius: BorderRadius.circular(8),
                 color: Colors.white,
               ),
@@ -83,8 +82,17 @@ class ProfileScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
                   ),
                   trailing: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.arrow_forward_ios_rounded,color: Colors.black,)),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => EditProfileScreen(),
+                            ));
+                      },
+                      icon: Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: Colors.black,
+                      )),
                 ),
               ),
             ),
@@ -93,12 +101,11 @@ class ProfileScreen extends StatelessWidget {
             ),
             ...List.generate(
               titles.length,
-                  (index) => Container(
-
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: Colors.white,
-                    ),
+              (index) => Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.white,
+                ),
                 margin: EdgeInsets.only(bottom: 16),
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 width: double.infinity,
@@ -106,33 +113,49 @@ class ProfileScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-
-                      child: Row(
-                        children: [
-                          Image.asset(
-                            images[index],
-                            width: 20.w,
-                            height: 20.h,
-                          ),
-                          SizedBox(
-                            width: 10.w,
-                          ),
-                          Text(
-                            titles[index],
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16,
-                                color: Colors.black),
-                          ),
-                        ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => pages[index],
+                            ));
+                      },
+                      child: Container(
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              images[index],
+                              width: 20.w,
+                              height: 20.h,
+                            ),
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            Text(
+                              titles[index],
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16,
+                                  color: Colors.black),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    IconButton(onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => pages[index],));
-
-                    }, icon: Icon(Icons.arrow_forward_ios_rounded,color: Colors.black,size: 16,))
-
+                    IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => pages[index],
+                              ));
+                        },
+                        icon: Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          color: Colors.black,
+                          size: 16,
+                        ))
                   ],
                 ),
               ),
