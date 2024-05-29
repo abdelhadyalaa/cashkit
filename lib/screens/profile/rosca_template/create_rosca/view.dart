@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cashkit/core/desgin/btn.dart';
+import 'package:cashkit/screens/profile/rosca_template/add_member/view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -126,223 +127,6 @@ class _CreatRoscaState extends State<CreatRosca> {
           _dateControllerStart.text.isNotEmpty &&
           _dateControllerEnd.text.isNotEmpty;
     });
-  }
-
-  void saveDataAndNavigate(BuildContext context) {
-    int budget = int.tryParse(budgetController.text) ?? 0;
-    if (budget > 100000) {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return Theme(
-            data: ThemeData(
-              dialogBackgroundColor:
-                  Color(0xffF6F6F6), // Set dialog background color
-            ),
-            child: AlertDialog(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0), // Set border radius
-              ),
-              content: Text(
-                  "The amount of money required to achieve your goal exceeds the amount in the saving box ,you can:",
-                  style: TextStyle(fontSize: 21, fontWeight: FontWeight.w600)),
-              actions: <Widget>[
-                Center(
-                  child: Container(
-                    height: 200,
-                    child: Column(
-                      children: [
-                        Container(
-                          child: Padding(
-                            padding: const EdgeInsets.all(7.0),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CircleAvatar(
-                                    child: CircleAvatar(
-                                        radius: 7.r,
-                                        backgroundColor: Colors.white),
-                                    radius: 9.r,
-                                    backgroundColor: Colors.black),
-                                SizedBox(
-                                  width: 5.w,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(" Edit Goal",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w800,
-                                            fontSize: 16.sp)),
-                                    TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(
-                                            context); // Close the alert dialog
-                                      },
-                                      child: Text(
-                                          'Change the amount saved every month.',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 12.sp,
-                                              color: Color(0xff656565))),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          margin:
-                              EdgeInsets.symmetric(vertical: 5, horizontal: 8),
-                          width: MediaQuery.of(context).size.width.w,
-                          height: 70.h,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(8)),
-                            //border corner radius
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.4),
-                                //color of shadow
-
-                                spreadRadius: 1,
-                                //spread radius
-                                blurRadius: 10, // blur radius
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          child: Padding(
-                            padding: const EdgeInsets.all(7.0),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CircleAvatar(
-                                    child: CircleAvatar(
-                                        radius: 7.r,
-                                        backgroundColor: Colors.white),
-                                    radius: 9.r,
-                                    backgroundColor: Colors.black),
-                                SizedBox(
-                                  width: 5.w,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(" Edit saving box",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w800,
-                                            fontSize: 16.sp)),
-                                    TextButton(
-                                      onPressed: () {
-                                        // Navigator.pushReplacement(
-                                        //   context,
-                                        //   MaterialPageRoute(
-                                        //     builder: (context) => Rating(),
-                                        //   ),
-                                        // );
-                                      },
-                                      child: Text(
-                                          'Increase End Date or decrease budget.',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 12.sp,
-                                              color: Color(0xff656565))),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          margin:
-                              EdgeInsets.symmetric(vertical: 5, horizontal: 8),
-                          width: MediaQuery.of(context).size.width.w,
-                          height: 70.h,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(8)),
-                            //border corner radius
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.4),
-                                //color of shadow
-
-                                spreadRadius: 1,
-                                //spread radius
-                                blurRadius: 10, // blur radius
-//changes position of shadow
-//first paramerter of offset is left-right
-//second parameter is top to down
-                              ),
-//you can set more BoxShadow() here
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            ),
-          );
-        },
-      );
-    } else {
-      // Save data to a list or wherever you want
-      List<String> data = [
-        nameController.text,
-        budgetController.text,
-        _dateControllerStart.text,
-        _dateControllerEnd.text,
-      ];
-      // Navigate to another screen, passing data if needed
-      showDialog(
-        context: context,
-        builder: (context) {
-          Future.delayed(Duration(seconds: 3), () {
-            // Navigator.push(context, MaterialPageRoute(builder: (context) => All_Goals(),)); // Close the dialog
-          });
-          return AlertDialog(
-            title: JelloIn(
-              duration: Duration(seconds: 4),
-              child: Image.asset(
-                "assets/images/star-creatGoal.png",
-                width: 118.w,
-                height: 118.h,
-              ),
-            ),
-            titlePadding: EdgeInsets.symmetric(vertical: 32),
-            actions: [
-              Column(
-                children: [
-                  Text(
-                    "Your goal is added successfully",
-                    style:
-                        TextStyle(fontWeight: FontWeight.w600, fontSize: 17.sp),
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          bottom: 28.0, right: 22, left: 22),
-                      child: Text(
-                        textAlign: TextAlign.center,
-                        "I hope you achieve your goal.",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400, fontSize: 16),
-                      ),
-                    ),
-                  ),
-                ],
-              )
-            ],
-          );
-        },
-      );
-    }
   }
 
   Widget build(BuildContext context) {
@@ -498,8 +282,13 @@ class _CreatRoscaState extends State<CreatRosca> {
             SizedBox(height: 50.h),
             Center(
               child: ElevatedButton(
-                onPressed:
-                    allFieldsFilled ? () => saveDataAndNavigate(context) : null,
+                onPressed: allFieldsFilled
+                    ? () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AddMemberScreen(),
+                        ))
+                    : null,
                 style: ElevatedButton.styleFrom(
                     minimumSize: Size(double.infinity.w, 50.h),
                     backgroundColor: Theme.of(context).primaryColor,

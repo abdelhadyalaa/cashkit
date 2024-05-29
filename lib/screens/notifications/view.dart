@@ -18,9 +18,14 @@ class NotificationsScreen extends StatelessWidget {
         child: Icon(Icons.delete),
       ),
       appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back_ios,
-          color: Colors.black,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
         ),
         elevation: 0,
         backgroundColor: Color(0xffEFEFEF),
@@ -69,9 +74,14 @@ class DeleteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back_ios,
-          color: Colors.black,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
         ),
         elevation: 0,
         backgroundColor: Color(0xffEFEFEF),

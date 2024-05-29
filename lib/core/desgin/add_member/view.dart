@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAddMemberScreen extends StatelessWidget {
-   CustomAddMemberScreen({Key? key,required this.x,required this.memberName}) : super(key: key);
+   CustomAddMemberScreen({Key? key,required this.x,required this.memberName, }) : super(key: key);
    int x;
    String memberName;
   @override
@@ -44,6 +44,7 @@ class CustomAddMemberScreen extends StatelessWidget {
             ),
           ),
           Spacer(),
+
           Container(
             width: 32.w,
             height: 32.h,
@@ -76,4 +77,5 @@ class CustomAddMemberScreen extends StatelessWidget {
       ),
     );
   }
+
 }

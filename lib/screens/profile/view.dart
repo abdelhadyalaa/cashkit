@@ -3,6 +3,7 @@ import 'package:cashkit/screens/profile/edit_profile/view.dart';
 import 'package:cashkit/screens/profile/edit_questions/view.dart';
 import 'package:cashkit/screens/profile/edit_savingbox/view.dart';
 import 'package:cashkit/screens/profile/edite_income/view.dart';
+import 'package:cashkit/screens/profile/rosca_template/rosca_home/empty_rosca.dart';
 import 'package:cashkit/screens/profile/rosca_template/rosca_home/view.dart';
 import 'package:cashkit/screens/questions/q_one/view.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ class ProfileScreen extends StatelessWidget {
       EditSavingBox(),
       EditProfileScreen(),
       EditProfileScreen(),
-      RoscaHomeScreen(),
+      EmptyRoscaScreen(),
       CreditHomeScreen(),
       EditProfileScreen(),
     ];

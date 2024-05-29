@@ -1,4 +1,86 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
+
+/*Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                GestureDetector(
+                  onTap: togglePaymentStatus,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: Theme.of(context).primaryColor,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
+                    width: 24,
+                    height: 24,
+                    child: Center(
+                      child: hasPaid
+                          ? Icon(
+                              Icons.check,
+                              size: 20,
+                              color: hasPaid
+                                  ? Theme.of(context).primaryColor
+                                  : Colors.white,
+                            )
+                          : null,
+                    ),
+                  ),
+                ),
+                SizedBox(width: 3),
+                Text(
+                  hasPaid ? 'pay' : 'Didn’t  Pay',
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+                ),
+              ],
+            ),
+          ),*/
+// class MsScreen extends StatelessWidget {
+//   const MsScreen({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     bool isPay =false;
+//     return Scaffold(
+//       body: Center(
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.center,
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             Row(
+//               crossAxisAlignment: CrossAxisAlignment.center,
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: [
+//                 Container(
+//                   width: 24.w,
+//                   height: 24.h,
+//                   margin: EdgeInsets.symmetric(horizontal: 8),
+//                   decoration: BoxDecoration(
+//                       borderRadius: BorderRadius.all(Radius.circular(42)),
+//                       border: Border.all(color: Theme.of(context).primaryColor),
+//                       color: Colors.white),
+//                   child: Center(
+//                       child: Icon(
+//                     Icons.check,
+//                     color: isPay?Theme.of(context).primaryColor:Colors.white,
+//                   )),
+//                 ),
+//                 Text(
+//                   "Didn’t pay",
+//                   style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
+//                 )
+//               ],
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+/*import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
 class TextFieldColorChangePage extends StatefulWidget {
@@ -41,8 +123,13 @@ class _TextFieldColorChangePageState extends State<TextFieldColorChangePage> {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         children: [
-          Text("Which of these do you spend money on ?",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
-          SizedBox(height: 16,),
+          Text(
+            "Which of these do you spend money on ?",
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          ),
+          SizedBox(
+            height: 16,
+          ),
           DropdownButtonHideUnderline(
             child: DropdownButton2<String>(
               isExpanded: true,
@@ -136,3 +223,4 @@ class _TextFieldColorChangePageState extends State<TextFieldColorChangePage> {
     );
   }
 }
+*/

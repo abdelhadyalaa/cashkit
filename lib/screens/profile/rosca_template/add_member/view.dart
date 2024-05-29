@@ -1,24 +1,24 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cashkit/core/desgin/add_member/view.dart';
+import 'package:cashkit/screens/profile/rosca_template/rosca_month/month_one/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AddMemberScreen extends StatefulWidget {
-   AddMemberScreen({Key? key}) : super(key: key);
-
+  AddMemberScreen({Key? key}) : super(key: key);
 
   @override
   State<AddMemberScreen> createState() => _AddMemberScreenState();
 }
 
 class _AddMemberScreenState extends State<AddMemberScreen> {
-  List<String>list=[
+  List<String> list = [];
 
-  ];
-  TextEditingController _controller =TextEditingController();
+  TextEditingController _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    bool isComplete= true;
+    bool isComplete = true;
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -54,7 +54,8 @@ class _AddMemberScreenState extends State<AddMemberScreen> {
                       margin: EdgeInsets.symmetric(horizontal: 120),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(42)),
-                          border: Border.all(color: Theme.of(context).primaryColor),
+                          border:
+                              Border.all(color: Theme.of(context).primaryColor),
                           color: Colors.white),
                       child: Image.asset(
                         "assets/images/correct.png",
@@ -78,21 +79,32 @@ class _AddMemberScreenState extends State<AddMemberScreen> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           child: Row(
-
                             children: [
                               ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-
-                                  backgroundColor: Colors.white70
-                                ),
-                                  onPressed: () {}, child: Text("Confirm",style: TextStyle(color: Theme.of(context).primaryColor),)),
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.white70),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              RoscaMonthOneScreen(),
+                                        ));
+                                  },
+                                  child: Text(
+                                    "Confirm",
+                                    style: TextStyle(
+                                        color: Theme.of(context).primaryColor),
+                                  )),
                               Spacer(),
                               ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-
-                                  backgroundColor: Colors.white70
-                                ),
-                                  onPressed: () {}, child: Text("Cancel",style: TextStyle(color: Colors.black),)),
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.white70),
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Cancel",
+                                    style: TextStyle(color: Colors.black),
+                                  )),
                             ],
                           ),
                         )
@@ -118,50 +130,62 @@ class _AddMemberScreenState extends State<AddMemberScreen> {
           ),
         ),
       ),
-      body: ListView(
+      body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
-        children: [
-          SizedBox(
-            height: 32.h,
-          ),
-          TextFormField(
-            controller: _controller,
-            decoration: InputDecoration(
-              suffixIcon: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    fixedSize: Size(80.w, 50.h),
-                    backgroundColor: Theme.of(context).primaryColor,
-                    // shape: RoundedRectangleBorder(
-                    //   borderRadius: BorderRadius.only(
-                    //       topRight: Radius.circular(10.r),
-                    //       bottomRight: Radius.circular(10.r)),
-                    // )
-                  ),
-                  onPressed: () {},
-                  child: Text("Add")),
-              floatingLabelBehavior: FloatingLabelBehavior.never,
-              enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                color: Color(0xffBDBDBD),
-                width: 1.0,
-              )),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Theme.of(context).primaryColor,
-                  width: 2.0,
-                ),
-              ),
-              labelText: "member name",
-              labelStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(50.r)),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 32.h,
             ),
-          ),
-          SizedBox(
-            height: 24,
-          ),
-          CustomAddMemberScreen(x: 1, memberName:_controller.text )
-        ],
+            TextFormField(
+              controller: _controller,
+              decoration: InputDecoration(
+                suffixIcon: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: Size(80.w, 50.h),
+                      backgroundColor: Theme.of(context).primaryColor,
+                    ),
+                    onPressed: () {
+                      list.add(_controller.text);
+                      _controller.clear();
+                      setState(() {});
+                    },
+                    child: Text("Add")),
+                floatingLabelBehavior: FloatingLabelBehavior.never,
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                  color: Color(0xffBDBDBD),
+                  width: 1.0,
+                )),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Theme.of(context).primaryColor,
+                    width: 2.0,
+                  ),
+                ),
+                labelText: "member name",
+                labelStyle:
+                    TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50.r)),
+              ),
+            ),
+            SizedBox(
+              height: 24,
+            ),
+            Expanded(
+                child: ListView.separated(
+              itemCount: list.length,
+              itemBuilder: (context, index) =>
+                  CustomAddMemberScreen(x: index + 1, memberName: list[index]),
+              separatorBuilder: (BuildContext context, int index) {
+                return SizedBox(
+                  height: 16.h,
+                );
+              },
+            )),
+          ],
+        ),
       ),
     );
   }

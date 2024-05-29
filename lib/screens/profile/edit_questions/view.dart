@@ -1,3 +1,4 @@
+import 'package:cashkit/core/desgin/btn.dart';
 import 'package:cashkit/screens/profile/edit_questions/edit_quesfive/view.dart';
 import 'package:cashkit/screens/profile/edit_questions/edit_quesfour/view.dart';
 import 'package:cashkit/screens/profile/edit_questions/edit_quesone/view.dart';
@@ -27,36 +28,45 @@ class EditAllQuestionScreen extends StatelessWidget {
           color: Colors.black,
         ),
       ),
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
+      body: ListView(
         children: [
           SizedBox(
-              height: 100, width: double.infinity, child: EditQuestionOne()),
+              height: 90, width: double.infinity, child: EditQuestionOne()),
+          SizedBox(
+            height: 10.h,
+          ),
+          SizedBox(
+              height: 90, width: double.infinity, child: EditQuestionTwo()),
+          SizedBox(
+            height: 10.h,
+          ),
+          SizedBox(
+              height: 90, width: double.infinity, child: EditQuestionThree()),
+          SizedBox(
+            height: 10.h,
+          ),
+          SizedBox(
+              height: 90, width: double.infinity, child: EditQuestionFour()),
+          SizedBox(
+            height: 10.h,
+          ),
+          SizedBox(
+              height: 90, width: double.infinity, child: EditQuestionFive()),
+          SizedBox(
+            height: 10.h,
+          ),
+          SizedBox(
+              height: 90, width: double.infinity, child: EditQuestionSix()),
           SizedBox(
             height: 20.h,
           ),
-          SizedBox(
-              height: 100, width: double.infinity, child: EditQuestionTwo()),
-          SizedBox(
-            height: 20.h,
-          ),
-          SizedBox(
-              height: 100, width: double.infinity, child: EditQuestionThree()),
-          SizedBox(
-            height: 20.h,
-          ),
-          SizedBox(
-              height: 100, width: double.infinity, child: EditQuestionFour()),
-          SizedBox(
-            height: 20.h,
-          ),
-          SizedBox(
-              height: 100, width: double.infinity, child: EditQuestionFive()),
-          SizedBox(
-            height: 20.h,
-          ),
-          SizedBox(
-              height: 100, width: double.infinity, child: EditQuestionSix()),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: BTN(
+              text: 'Save',
+              onPrees: () {},
+            ),
+          )
         ],
       ),
     );
