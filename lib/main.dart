@@ -37,7 +37,8 @@ class MyApp extends StatelessWidget {
           ),
           home: PageView(
             children: [
-              EmptyRoscaScreen(),
+              NotificationsScreen(),
+              // EmptyRoscaScreen(),
               // EditAllQuestionScreen(),
               // NotificationsScreen(),
               // FingerPrintScreen(),
