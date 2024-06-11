@@ -9,13 +9,11 @@ class ArticlesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-
-        leading:IconButton(
-          icon:Icon(Icons.arrow_back_ios),
-          onPressed: (){
-          //  put here name of Home screen
-          }
-        ),
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.pop(context);
+            }),
       ),
       backgroundColor: Theme.of(context).primaryColor,
       body: ListView(

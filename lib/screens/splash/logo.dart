@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:animate_do/animate_do.dart';
+import 'package:cashkit/screens/Fingerprint/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,7 +17,10 @@ class _LogoScreenState extends State<LogoScreen> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 5), () {
-      // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>SplashOneScreen()), (route) => false);
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => FingerPrintScreen()),
+          (route) => false);
     });
   }
 
@@ -32,10 +36,11 @@ class _LogoScreenState extends State<LogoScreen> {
                 child: Image.asset(
                   "assets/images/Logo.png",
                 )),
-            SizedBox(height: 18.h,),
+            SizedBox(
+              height: 18.h,
+            ),
             ElasticInUp(
               duration: Duration(seconds: 3),
-
               child: FadeInUp(
                   duration: Duration(seconds: 3),
                   child: Text(

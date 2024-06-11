@@ -37,10 +37,14 @@ class _AddMoneyScreenState extends State<AddMoneyScreen> {
       appBar: AppBar(
         backgroundColor: Color(0xffEFEFEF),
         elevation: 0,
-        leading: Icon(
-          Icons.arrow_back_ios,
-          color: Colors.black,
-        ),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            )),
         title: Text(
           "Add Card",
           style: TextStyle(

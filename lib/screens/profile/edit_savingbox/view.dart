@@ -8,12 +8,16 @@ class EditSavingBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _controller = TextEditingController();
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color(0xffEFEFEF),
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             icon: Icon(
               Icons.arrow_back_ios,
               color: Colors.black,
@@ -40,34 +44,47 @@ class EditSavingBox extends StatelessWidget {
             height: 24.h,
           ),
           Container(
-            height: 48.h,
-            width: 248.w,
+            height: 68.h,
+            width: double.infinity,
+            margin: EdgeInsets.symmetric(horizontal: 60),
+            padding: EdgeInsets.only(left: 40.0.w, top: 10.h, right: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: Colors.white,
-              border: Border.all(color: Colors.white),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "EGP",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black),
-                ),
-                SizedBox(
-                  width: 10.w,
-                ),
-                Text(
-                  "1000",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black),
-                ),
-              ],
+            child: Center(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "EGP",
+                    style: TextStyle(fontSize: 22),
+                  ),
+                  Expanded(
+                    child: TextFormField(
+                      controller: _controller,
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "000",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           SizedBox(

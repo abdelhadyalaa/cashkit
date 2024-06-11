@@ -55,7 +55,9 @@ class _EditIncomeScreenState extends State<EditIncomeScreen> {
         elevation: 0,
         backgroundColor: Color(0xffEFEFEF),
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             icon: Icon(
               Icons.arrow_back_ios,
               color: Colors.black,
@@ -203,7 +205,7 @@ class _EditIncomeScreenState extends State<EditIncomeScreen> {
                     fixedSize: Size(100.w, 48.h),
                   ),
                   onPressed: () {},
-                  child: Text("Sure")),
+                  child: Text("Save")),
               Spacer(),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(

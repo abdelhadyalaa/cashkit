@@ -30,10 +30,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           style: TextStyle(
               color: Colors.black, fontWeight: FontWeight.w600, fontSize: 20),
         ),
-        leading: Icon(
-          Icons.arrow_back_ios,
-          color: Colors.black,
-        ),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            )),
       ),
       body: SingleChildScrollView(
         child: Column(

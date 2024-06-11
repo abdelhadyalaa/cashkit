@@ -1,5 +1,6 @@
 import 'package:cashkit/core/desgin/btn.dart';
 import 'package:cashkit/screens/auth/login/view.dart';
+import 'package:cashkit/screens/nav_bar/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -234,7 +235,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     SizedBox(
                       height: 28.h,
                     ),
-                    BTN(text: "Sign Up", onPrees: _allValidationsPassed),
+                    BTN(
+                      text: "Sign Up",
+                      onPrees: () => _allValidationsPassed,
+                    ),
                     SizedBox(
                       height: 28.h,
                     ),
@@ -310,13 +314,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         children: [
                           Text('Already have an account?',
                               style: TextStyle(
-                                  color: const Color(0xffBDBDBD), fontSize: 14.sp)),
+                                  color: const Color(0xffBDBDBD),
+                                  fontSize: 14.sp)),
                           InkWell(
                               onTap: () {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => const LoginScreen()));
+                                        builder: (context) =>
+                                            const LoginScreen()));
                               },
                               child: Text(' Log in',
                                   style: TextStyle(
@@ -349,7 +355,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  bool _allValidationsPassed() {
-    return isLengthValid && hasUpperCase && hasNumber && hasSpecialChar;
+  bool _allValidationsPassed(BuildContext context) {
+    if (isLengthValid && hasUpperCase && hasNumber && hasSpecialChar) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => NavScreen()));
+      return true;
+    }
+    return false;
   }
 }

@@ -94,7 +94,7 @@ class _RoscaMonthOneScreenState extends State<RoscaMonthOneScreen> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => RoscaMonthTwoScreen(),
+                  builder: (context) => RoscaHomeScreen(),
                 ));
           },
           style: ElevatedButton.styleFrom(
@@ -104,7 +104,7 @@ class _RoscaMonthOneScreenState extends State<RoscaMonthOneScreen> {
                 borderRadius: BorderRadius.circular(10.r),
               )),
           child: Text(
-            "Next Month",
+            "All Rosca",
             style: TextStyle(
                 fontSize: 18.sp,
                 fontWeight: FontWeight.w700,

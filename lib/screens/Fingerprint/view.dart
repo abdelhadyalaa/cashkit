@@ -1,5 +1,5 @@
 import 'package:cashkit/screens/splash/logo.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:cashkit/screens/splash/toggle_splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -61,7 +61,7 @@ class _FingerPrintScreenState extends State<FingerPrintScreen> {
       Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => LogoScreen(),
+            builder: (context) => ToggleSplash(),
           ));
       // Here Put Where we should Push!!!!
     }

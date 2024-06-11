@@ -23,10 +23,14 @@ class EditAllQuestionScreen extends StatelessWidget {
           style: TextStyle(
               color: Colors.black, fontWeight: FontWeight.w600, fontSize: 20),
         ),
-        leading: Icon(
-          Icons.arrow_back_ios,
-          color: Colors.black,
-        ),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            )),
       ),
       body: ListView(
         children: [
@@ -63,7 +67,7 @@ class EditAllQuestionScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: BTN(
-              text: 'Save',
+              text: 'Generate',
               onPrees: () {},
             ),
           )

@@ -1,6 +1,7 @@
 import 'package:cashkit/core/desgin/btn.dart';
 import 'package:cashkit/screens/auth/new_password/view.dart';
 import 'package:cashkit/screens/auth/sign_up/view.dart';
+import 'package:cashkit/screens/nav_bar/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -175,7 +176,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(
                       height: 20.h,
                     ),
-                    BTN(text: "Login", onPrees: () {}),
+                    BTN(
+                        text: "Login",
+                        onPrees: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => NavScreen(),
+                              ));
+                        }),
                     SizedBox(
                       height: 28.h,
                     ),
